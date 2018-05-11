@@ -29,8 +29,8 @@ function FadeOutState:update(dt)
 end
 
 function FadeOutState:render()
-    love.graphics.setColor(rgb(self.r, self.g, self.b), self.opacity)
+    love.graphics.setColor(rgba(self.r, self.g, self.b, self.opacity))
     love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 
-    love.graphics.setColor(rgb(255, 255, 255), 255)
+    love.graphics.setColor(rgba(255, 255, 255, 255))
 end

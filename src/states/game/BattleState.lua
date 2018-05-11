@@ -91,11 +91,11 @@ end
 function BattleState:render()
     love.graphics.clear(214, 214, 214, 255)
 
-    love.graphics.setColor(rgb(45, 184, 45), 124)
+    love.graphics.setColor(rgba(45, 184, 45, 124))
     love.graphics.ellipse('fill', self.opponentCircleX, 60, 72, 24)
     love.graphics.ellipse('fill', self.playerCircleX, VIRTUAL_HEIGHT - 64, 72, 24)
 
-    love.graphics.setColor(rgb(255, 255, 255), 255)
+    love.graphics.setColor(rgba(255, 255, 255, 255))
     self.opponentSprite:render()
     self.playerSprite:render()
 
@@ -105,14 +105,14 @@ function BattleState:render()
         self.playerExpBar:render()
 
         -- render level text
-        love.graphics.setColor(rgb(0, 0, 0), 255)
+        love.graphics.setColor(rgba(0, 0, 0, 255))
         love.graphics.setFont(gFonts['small'])
         love.graphics.print('LV ' .. tostring(self.playerPokemon.level),
             self.playerHealthBar.x, self.playerHealthBar.y - 10)
         love.graphics.print('LV ' .. tostring(self.opponentPokemon.level),
             self.opponentHealthBar.x, self.opponentHealthBar.y + 8)
         love.graphics.setFont(gFonts['medium'])
-        love.graphics.setColor(rgb(255, 255, 255), 255)
+        love.graphics.setColor(rgba(255, 255, 255, 255))
     end
 
     self.bottomPanel:render()
