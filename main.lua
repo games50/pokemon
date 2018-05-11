@@ -42,6 +42,11 @@
 
 require 'src/Dependencies'
 
+
+function rgba (r, g, b, a)
+  return {r / 255, g / 255, b / 255, a / 255}
+end
+
 function love.load()
     love.window.setTitle('Poke50')
     love.graphics.setDefaultFilter('nearest', 'nearest')
