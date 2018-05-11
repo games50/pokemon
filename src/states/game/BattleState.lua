@@ -23,9 +23,9 @@ function BattleState:init(player)
         }
     }
 
-    self.playerSprite = BattleSprite(self.player.party.pokemon[1].battleSpriteBack, 
+    self.playerSprite = BattleSprite(self.player.party.pokemon[1].battleSpriteBack,
         -64, VIRTUAL_HEIGHT - 128)
-    self.opponentSprite = BattleSprite(self.opponent.party.pokemon[1].battleSpriteFront, 
+    self.opponentSprite = BattleSprite(self.opponent.party.pokemon[1].battleSpriteFront,
         VIRTUAL_WIDTH, 8)
 
     -- health bars for pokemon
@@ -73,7 +73,7 @@ function BattleState:init(player)
 end
 
 function BattleState:enter(params)
-    
+
 end
 
 function BattleState:exit()
@@ -91,11 +91,11 @@ end
 function BattleState:render()
     love.graphics.clear(214, 214, 214, 255)
 
-    love.graphics.setColor(45, 184, 45, 124)
+    love.graphics.setColor(rgb(45, 184, 45), 124)
     love.graphics.ellipse('fill', self.opponentCircleX, 60, 72, 24)
     love.graphics.ellipse('fill', self.playerCircleX, VIRTUAL_HEIGHT - 64, 72, 24)
 
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(rgb(255, 255, 255), 255)
     self.opponentSprite:render()
     self.playerSprite:render()
 
@@ -105,14 +105,14 @@ function BattleState:render()
         self.playerExpBar:render()
 
         -- render level text
-        love.graphics.setColor(0, 0, 0, 255)
+        love.graphics.setColor(rgb(0, 0, 0), 255)
         love.graphics.setFont(gFonts['small'])
         love.graphics.print('LV ' .. tostring(self.playerPokemon.level),
             self.playerHealthBar.x, self.playerHealthBar.y - 10)
         love.graphics.print('LV ' .. tostring(self.opponentPokemon.level),
             self.opponentHealthBar.x, self.opponentHealthBar.y + 8)
         love.graphics.setFont(gFonts['medium'])
-        love.graphics.setColor(255, 255, 255, 255)
+        love.graphics.setColor(rgb(255, 255, 255), 255)
     end
 
     self.bottomPanel:render()
@@ -134,15 +134,15 @@ function BattleState:triggerSlideIn()
 end
 
 function BattleState:triggerStartingDialogue()
-    
+
     -- display a dialogue first for the pokemon that appeared, then the one being sent out
     gStateStack:push(BattleMessageState('A wild ' .. tostring(self.opponent.party.pokemon[1].name ..
         ' appeared!'),
-    
+
     -- callback for when the battle message is closed
     function()
         gStateStack:push(BattleMessageState('Go, ' .. tostring(self.player.party.pokemon[1].name .. '!'),
-    
+
         -- push a battle menu onto the stack that has access to the battle state
         function()
             gStateStack:push(BattleMenuState(self))
