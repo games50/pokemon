@@ -38,14 +38,14 @@ function ProgressBar:render()
     local renderWidth = (self.value / self.max) * self.width
 
     -- draw main bar, with calculated width based on value / max
-    love.graphics.setColor(self.color.r, self.color.g, self.color.b, 255)
+    love.graphics.setColor(self.color.r, self.color.g, self.color.b, 1)
     
     if self.value > 0 then
         love.graphics.rectangle('fill', self.x, self.y, renderWidth, self.height, 3)
     end
 
     -- draw outline around actual bar
-    love.graphics.setColor(0, 0, 0, 255)
+    love.graphics.setColor(0, 0, 0, 1)
     love.graphics.rectangle('line', self.x, self.y, self.width, self.height, 3)
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
 end

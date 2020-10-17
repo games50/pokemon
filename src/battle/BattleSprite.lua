@@ -12,7 +12,7 @@ function BattleSprite:init(texture, x, y)
     self.texture = texture
     self.x = x
     self.y = y
-    self.opacity = 255
+    self.opacity = 1
     self.blinking = false
 
     -- https://love2d.org/forums/viewtopic.php?t=79617
@@ -35,7 +35,7 @@ function BattleSprite:update(dt)
 end
 
 function BattleSprite:render()
-    love.graphics.setColor(255, 255, 255, self.opacity)
+    love.graphics.setColor(1, 1, 1, self.opacity)
 
     -- if blinking is set to true, we'll send 1 to the white shader, which will
     -- convert every pixel of the sprite to pure white

@@ -34,7 +34,7 @@ function BattleState:init(player)
         y = VIRTUAL_HEIGHT - 80,
         width = 152,
         height = 6,
-        color = {r = 189, g = 32, b = 32},
+        color = {r = 189/255, g = 32/255, b = 32/255},
         value = self.player.party.pokemon[1].currentHP,
         max = self.player.party.pokemon[1].HP
     }
@@ -44,7 +44,7 @@ function BattleState:init(player)
         y = 8,
         width = 152,
         height = 6,
-        color = {r = 189, g = 32, b = 32},
+        color = {r = 189/255, g = 32/255, b = 32/255},
         value = self.opponent.party.pokemon[1].currentHP,
         max = self.opponent.party.pokemon[1].HP
     }
@@ -55,7 +55,7 @@ function BattleState:init(player)
         y = VIRTUAL_HEIGHT - 73,
         width = 152,
         height = 6,
-        color = {r = 32, g = 32, b = 189},
+        color = {r = 32/255, g = 32/255, b = 189/255},
         value = self.player.party.pokemon[1].currentExp,
         max = self.player.party.pokemon[1].expToLevel
     }
@@ -89,13 +89,13 @@ function BattleState:update(dt)
 end
 
 function BattleState:render()
-    love.graphics.clear(214, 214, 214, 255)
+    love.graphics.clear(214/255, 214/255, 214/255, 1)
 
-    love.graphics.setColor(45, 184, 45, 124)
+    love.graphics.setColor(45/255, 184/255, 45/255, 124/255)
     love.graphics.ellipse('fill', self.opponentCircleX, 60, 72, 24)
     love.graphics.ellipse('fill', self.playerCircleX, VIRTUAL_HEIGHT - 64, 72, 24)
 
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 1, 1, 1)
     self.opponentSprite:render()
     self.playerSprite:render()
 
@@ -105,14 +105,14 @@ function BattleState:render()
         self.playerExpBar:render()
 
         -- render level text
-        love.graphics.setColor(0, 0, 0, 255)
+        love.graphics.setColor(0, 0, 0, 1)
         love.graphics.setFont(gFonts['small'])
         love.graphics.print('LV ' .. tostring(self.playerPokemon.level),
             self.playerHealthBar.x, self.playerHealthBar.y - 10)
         love.graphics.print('LV ' .. tostring(self.opponentPokemon.level),
             self.opponentHealthBar.x, self.opponentHealthBar.y + 8)
         love.graphics.setFont(gFonts['medium'])
-        love.graphics.setColor(255, 255, 255, 255)
+        love.graphics.setColor(1, 1, 1, 1)
     end
 
     self.bottomPanel:render()

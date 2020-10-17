@@ -96,7 +96,7 @@ function TakeTurnState:attack(attacker, defender, attackerSprite, defenderSprite
             gSounds['hit']:play()
 
             Timer.every(0.1, function()
-                defenderSprite.opacity = defenderSprite.opacity == 64 and 255 or 64
+                defenderSprite.opacity = defenderSprite.opacity == 64/255 and 1 or 64/255
             end)
             :limit(6)
             :finish(function()
@@ -230,7 +230,7 @@ end
 function TakeTurnState:fadeOutWhite()
     -- fade in
     gStateStack:push(FadeInState({
-        r = 255, g = 255, b = 255
+        r = 1, g = 1, b = 1
     }, 1, 
     function()
 
@@ -241,7 +241,7 @@ function TakeTurnState:fadeOutWhite()
         -- pop off the battle state
         gStateStack:pop()
         gStateStack:push(FadeOutState({
-            r = 255, g = 255, b = 255
+            r = 1, g = 1, b = 1
         }, 1, function() end))
     end))
 end

@@ -38,7 +38,7 @@ function BattleMenuState:init(battleState)
                         function() end), false)
                     Timer.after(0.5, function()
                         gStateStack:push(FadeInState({
-                            r = 255, g = 255, b = 255
+                            r = 1, g = 1, b = 1
                         }, 1,
                         
                         -- pop message and battle state and add a fade to blend in the field
@@ -54,7 +54,7 @@ function BattleMenuState:init(battleState)
                             gStateStack:pop()
 
                             gStateStack:push(FadeOutState({
-                                r = 255, g = 255, b = 255
+                                r = 1, g = 1, b = 1
                             }, 1, function()
                                 -- do nothing after fade out ends
                             end))

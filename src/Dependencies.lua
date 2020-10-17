@@ -81,15 +81,15 @@ gFonts = {
 }
 
 gSounds = {
-    ['field-music'] = love.audio.newSource('sounds/field_music.wav'),
-    ['battle-music'] = love.audio.newSource('sounds/battle_music.mp3'),
-    ['blip'] = love.audio.newSource('sounds/blip.wav'),
-    ['powerup'] = love.audio.newSource('sounds/powerup.wav'),
-    ['hit'] = love.audio.newSource('sounds/hit.wav'),
-    ['run'] = love.audio.newSource('sounds/run.wav'),
-    ['heal'] = love.audio.newSource('sounds/heal.wav'),
-    ['exp'] = love.audio.newSource('sounds/exp.wav'),
-    ['levelup'] = love.audio.newSource('sounds/levelup.wav'),
-    ['victory-music'] = love.audio.newSource('sounds/victory.wav'),
-    ['intro-music'] = love.audio.newSource('sounds/intro.mp3')
+    ['field-music'] = love.audio.newSource('sounds/field_music.wav', 'static'),
+    ['battle-music'] = love.audio.newSource('sounds/battle_music.mp3', 'static'),
+    ['blip'] = love.audio.newSource('sounds/blip.wav', 'static'),
+    ['powerup'] = love.audio.newSource('sounds/powerup.wav', 'static'),
+    ['hit'] = love.audio.newSource('sounds/hit.wav', 'static'),
+    ['run'] = love.audio.newSource('sounds/run.wav', 'static'),
+    ['heal'] = love.audio.newSource('sounds/heal.wav', 'static'),
+    ['exp'] = love.audio.newSource('sounds/exp.wav', 'static'),
+    ['levelup'] = love.audio.newSource('sounds/levelup.wav', 'static'),
+    ['victory-music'] = love.audio.newSource('sounds/victory.wav', 'static'),
+    ['intro-music'] = love.audio.newSource('sounds/intro.mp3', 'static')
 }
