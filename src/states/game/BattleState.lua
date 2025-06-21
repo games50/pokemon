@@ -1,5 +1,5 @@
 --[[
-    GD50
+    CS50 2D
     Pokemon
 
     Author: Colton Ogden
@@ -89,7 +89,8 @@ function BattleState:update(dt)
 end
 
 function BattleState:render()
-    love.graphics.clear(214/255, 214/255, 214/255, 1)
+    love.graphics.setColor(214/255, 214/255, 214/255, 1)
+    love.graphics.rectangle('fill', 0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 
     love.graphics.setColor(45/255, 184/255, 45/255, 124/255)
     love.graphics.ellipse('fill', self.opponentCircleX, 60, 72, 24)

@@ -1,5 +1,5 @@
 --[[
-    GD50
+    CS50 2D
     Pokemon
 
     Author: Colton Ogden
@@ -40,18 +40,20 @@
     Battle: https://freesound.org/people/Sirkoto51/sounds/414214/
 ]]
 
-require 'src/Dependencies'
+love.graphics.setDefaultFilter('nearest', 'nearest')
+require 'src.Dependencies'
 
 function love.load()
     love.window.setTitle('Poke50')
-    love.graphics.setDefaultFilter('nearest', 'nearest')
     math.randomseed(os.time())
 
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
+    love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
         vsync = true,
         resizable = true
     })
+
+    push.setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, { upscale = 'normal' })
 
     -- this time, we are using a stack for all of our states, where the field state is the
     -- foundational state; it will have its behavior preserved between state changes because
@@ -65,7 +67,7 @@ function love.load()
 end
 
 function love.resize(w, h)
-    push:resize(w, h)
+    push.resize(w, h)
 end
 
 function love.keypressed(key)
@@ -88,7 +90,7 @@ function love.update(dt)
 end
 
 function love.draw()
-    push:start()
+    push.start()
     gStateStack:render()
-    push:finish()
+    push.finish()
 end
