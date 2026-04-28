@@ -35,7 +35,7 @@ function BattleMenuState:init(battleState)
                     -- show a message saying they successfully ran, then fade in
                     -- and out back to the field automatically
                     gStateStack:push(BattleMessageState('You fled successfully!',
-                        function() end), false)
+                        function() end, false))
                     Timer.after(0.5, function()
                         gStateStack:push(FadeInState({
                             r = 1, g = 1, b = 1
